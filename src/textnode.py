@@ -23,8 +23,9 @@ class TextNode():
         else:
             return False
 
+# Note: you may want to use .value on the text_type field to get the string representation of the enum.
     def __repr__(self):
-        return f"TextNode({self.text}, {self.text_type.value}, {self.url})"
+        return f"TextNode({self.text}, {self.text_type}, {self.url})"
         
 
 
