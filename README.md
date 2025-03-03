@@ -1,0 +1,1 @@
+[boot.dev project](https://www.boot.dev/courses/build-static-site-generator-python "Build a Static Site Generator in Python")
