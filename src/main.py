@@ -1,4 +1,5 @@
 from textnode import *
+from splitter import *
 
 #needs to print "TextNode(This is some anchor text, link, https://www.boot.dev)" using TextNode
 def main():
@@ -23,6 +24,7 @@ def text_node_to_html_node(text_node):
         
         case _:
             raise Exception
+
 
 
 if __name__ == "__main__":
