@@ -1,5 +1,6 @@
 from textnode import *
 from splitter import *
+from htmlnode import LeafNode
 
 #needs to print "TextNode(This is some anchor text, link, https://www.boot.dev)" using TextNode
 def main():
