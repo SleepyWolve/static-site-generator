@@ -1,6 +1,5 @@
 import re
 
-from main import text_node_to_html_node
 from textnode import *
 from htmlnode import *
 
@@ -77,6 +76,7 @@ def split_nodes_link(old_nodes):
             new_nodes.append(TextNode(original_text, TextType.TEXT))
     return new_nodes
 
+# Not sure why I put it in here instead of textnote.py ???
 def text_to_textnodes(text):
     delimiters = {TextType.BOLD: "**", TextType.ITALIC: "_", TextType.CODE: "`"}
     nodes = [TextNode(text, TextType.TEXT)]
@@ -86,22 +86,6 @@ def text_to_textnodes(text):
     nodes = split_nodes_link(nodes)
     return nodes
 
-
-
-''' wrong answer  \/
-def split_nodes_delimiter(old_nodes, delimiter, text_type):
-    new_nodes = []
-    for node in old_nodes:
-        if node.text_type is TextType.TEXT:
-            if not delimiter in node.text:
-                raise Exception("Missing Delimiter")
-            node_text = node.text.split(delimiter)
-            nodes = [TextNode(node_text[0], TextType.TEXT), TextNode(node_text[1], text_type), TextNode(node_text[2], TextType.TEXT)]
-            new_nodes.extend(nodes)
-            continue
-        new_nodes.append(node)
-    return new_nodes
-'''
 
 # images
 # r"!\[([^\[\]]*)\]\(([^\(\)]*)\)"

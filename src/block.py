@@ -16,14 +16,13 @@ BlockType.CODE: re.compile(r'^```[\s\S]*?```$'),
 BlockType.QUOTE: re.compile(r'^(>\s[^\n]*(?:\n>\s[^\n]*)*)$'),
 BlockType.UNORDERED: re.compile(r'^(-\s[^\n]*(?:\n-\s[^\n]*)*)$'),
 BlockType.ORDERED: re.compile(r'^(\d+\.\s[^\n]*(?:\n\d+\.\s[^\n]*)*)$'),
-BlockType.PARAGRAPH: re.compile(r'^(\S.+)$'),
 }
 
 def block_to_block_type(block):
     for block_type, pattern in regex_patterns.items():
         if pattern.match(block):
             return block_type
-    return None
+    return BlockType.PARAGRAPH
 
     
 
