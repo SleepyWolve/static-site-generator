@@ -1,12 +1,22 @@
+from os import path
+from shutil import rmtree
+
 from textnode import *
 from splitter import *
 from htmlnode import LeafNode
 from block import BlockType, block_to_block_type, markdown_to_blocks
+from copystatic import copy_static_recursive
 
+dir_path_static = "./static"
+dir_path_public = "./public"
 
 def main():
-    pass
-
+    print("Deleting public dir...")
+    if path.exists(dir_path_public):
+        rmtree(dir_path_public)
+    
+    print("copying static content...")
+    copy_static_recursive(dir_path_static, dir_path_public)
 
 def text_node_to_html_node(text_node):
     match text_node.text_type:
