@@ -1,4 +1,4 @@
-from os import path
+from os import path, makedirs, listdir
 from shutil import rmtree
 
 from textnode import *
@@ -9,6 +9,9 @@ from copystatic import copy_static_recursive
 
 dir_path_static = "./static"
 dir_path_public = "./public"
+dir_path_content = "./content"
+template_path = "./template.html"
+
 
 def main():
     print("Deleting public dir...")
@@ -17,6 +20,57 @@ def main():
     
     print("copying static content...")
     copy_static_recursive(dir_path_static, dir_path_public)
+
+    print("Generating page...")
+    recusive_gen(dir_path_content, dir_path_public)
+
+
+def recusive_gen(source_dir, public_dir):
+    for item in listdir(source_dir):
+        source = path.join(source_dir, item)
+        dest = path.join(public_dir, item)
+        print(f" * {source} -> {dest}")
+        if path.isfile(source):
+            if source.endswith(".md"):
+                html_dest = dest.replace(".md", ".html")
+            generate_page(source, html_dest, template_path)
+        else:
+            recusive_gen(source, dest)
+
+def generate_page(from_path, dest_path, template_path):
+    print(f"Generating page from {from_path} to {dest_path} using {template_path}")
+    if not path.isfile(from_path):
+        raise FileNotFoundError("the markdown file was not found")
+
+    md_content = read_file(from_path)
+    template = read_file(template_path)
+
+    node = markdown_to_html_node(md_content)
+    html = node.to_html()
+
+    title = extract_title(md_content)
+    template = template.replace("{{ Title }}", title)
+    template = template.replace("{{ Content }}", html)
+
+    dest_dir_path = path.dirname(dest_path)
+    if dest_dir_path != "":
+        makedirs(dest_dir_path, exist_ok=True)
+    to_file = open(dest_path, "w")
+    to_file.write(template)
+
+def read_file(source):
+    if not path.isfile(source):
+        raise FileNotFoundError("the source file not found")
+    file = open(source)
+    content = file.read()
+    file.close()
+    return content
+
+
+def extract_title(md):
+    if md.startswith("# "):
+        return md.split("\n", 1)[0].lstrip('#').strip()
+    raise Exception("No title found")
 
 def text_node_to_html_node(text_node):
     match text_node.text_type:
