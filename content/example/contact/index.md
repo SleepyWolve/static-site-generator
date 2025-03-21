@@ -1,8 +1,6 @@
 # Contact the Author
 
-[< Back Home](/)
-
-[* My Main Site](https://sleepywolve.github.io/)
+[< Back Home](/example)
 
 Give me a call anytime to chat about Tolkien!
 

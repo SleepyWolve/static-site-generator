@@ -1,46 +1,59 @@
-# Tolkien Fan Club
+# Static Site Generator
 
-![JRR Tolkien sitting](/images/tolkien.png)
+## Nav
 
-Here's the deal, **I like Tolkien**.
+-[* My Main Site](https://sleepywolve.github.io/)
 
-> "I am in fact a Hobbit in all but size."
->
-> -- J.R.R. Tolkien
+-[GitHub repository](https://github.com/SleepyWolve/static-site-generator)
 
-## Blog posts
+-[example site](/example)
 
-- [Why Glorfindel is More Impressive than Legolas](/blog/glorfindel)
-- [Why Tom Bombadil Was a Mistake](/blog/tom)
-- [The Unparalleled Majesty of "The Lord of the Rings"](/blog/majesty)
+## Thoughts
 
-## Reasons I like Tolkien
+### 21/March/2025
 
-- You can spend years studying the legendarium and still not understand its depths
-- It can be enjoyed by children and adults alike
-- Disney _didn't ruin it_ (okay, but Amazon might have)
-- It created an entirely new genre of fantasy
+I finished this project yesterday, and it was hard. Maybe it's a bit odd, but one of the harder parts for me was that I wasn't sure what to name functions or variables, or which file to put them in. I plan on returning to this project when I know a lot more about programming, I might rewrite it in a different language.
 
-## My favorite characters (in order)
+## Goals
 
-1. Gandalf
-2. Bilbo
-3. Sam
-4. Glorfindel
-5. Galadriel
-6. Elrond
-7. Thorin
-8. Sauron
-9. Aragorn
+Ideas I would add when returning to this project
+- [ ] Automatically handle some errors
+- [ ] Come up with more ideas
+- [ ] IDK
+- [ ] Write in rust, so it runs faster or something
 
-Here's what `elflang` looks like (the perfect coding language):
+## More Formatting Examples
 
+paragraph with **bold, *bolded* _italic_**, and _italic_ goes here
+newline, `with code` 
+
+> quote with **BOLD text**
+> quote with _italic text_
+> quote with **_Bolded Italic text_**
+
+### Very Effective Code
+
+Not sure why I wrote this much :shrugs:
+
+```py
+string = ""
+def main():
+    set_str("Hello World!")
+    i = 1
+    while i <= 10:
+        print(f"{i}. {string}")
+        i += 1        
+def set_str(i):
+    print("Setting String...")
+    global string
+    string = i
+if __name__ == "__main__":
+    main()
 ```
-func main(){
-    fmt.Println("Aiya, Ambar!")
-}
-```
 
-Want to get in touch? [Contact me here](/contact).
+oh, it seems it doesn't handle this correctly when there is recurring newlines within the code block
 
-This site was generated with a custom-built [static site generator](https://www.boot.dev/courses/build-static-site-generator-python) from the course on [Boot.dev](https://www.boot.dev).
+###### Smallest Header thingy
+
+That's all folx
+
