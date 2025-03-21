@@ -1,4 +1,7 @@
 # 🎨 *Comprehensive* **Markdown** Formatting **Demo**  
+
+[< Home](/)
+
 _This document showcases **all** supported Markdown syntax while **simultaneously** discussing its AI-generated nature._
 
 ---
@@ -66,7 +69,7 @@ While AI can mimic formatting flawlessly^1, it lacks **intentionality**. Use suc
 
 ---
 
-![Placeholder Image](https://via.placeholder.com/150x50?text=AI+Generated)  
+![Image](https://en.wikipedia.org/wiki/File:ENIAC-changing_a_tube_(cropped).jpg)  
 *Example of an embedded image link.*  
 
 ---
