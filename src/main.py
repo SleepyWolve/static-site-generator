@@ -1,5 +1,6 @@
 from os import path, makedirs, listdir
 from shutil import rmtree
+from sys import argv
 
 from textnode import *
 from splitter import *
@@ -7,8 +8,10 @@ from htmlnode import LeafNode
 from block import BlockType, block_to_block_type, markdown_to_blocks
 from copystatic import copy_static_recursive
 
+basepath = argv[1] if len(argv) > 1 else "/"
+
 dir_path_static = "./static"
-dir_path_public = "./public"
+dir_path_public = "./docs"
 dir_path_content = "./content"
 template_path = "./template.html"
 
@@ -51,6 +54,8 @@ def generate_page(from_path, dest_path, template_path):
     title = extract_title(md_content)
     template = template.replace("{{ Title }}", title)
     template = template.replace("{{ Content }}", html)
+    template = template.replace('href="/', 'href="' + basepath)
+    template = template.replace('src="/', 'src="' + basepath)
 
     dest_dir_path = path.dirname(dest_path)
     if dest_dir_path != "":
